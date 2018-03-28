@@ -26,19 +26,19 @@ K.~Suberlak, C.~Slater, \v{Z}.~Ivezi\'c}
 \setDocStatus{draft}
 \setDocAbstract{
 A report on the performance of current LSST Stack pipelines in crowded stellar fields. We use the DECAPS data to define the photometry and astrometry quality assurance metrics.
-
+%
 % 644035
 In the top 10\% region, where DECAPS detects 200 000 sources per sq.deg., the mean LSST-DECAPS completeness in 18-20 mag is 80\%, and it drops to 50\% at 21.5 mag. For the same visit, the DECAPS $5\sigma$ limiting depth is 23 mag.
-
+%
 % 566793
 For a top 2\% region, within the exclusion zone, in which DECAPS detects 500 000 sources per sq.deg., the mean completeness in 18-20 mag of LSST to DECAPS source-by-source is 78\%, and it drops to 50\% at 20.2 mag.  For the same visit, the DECAPS $5\sigma$ limiting depth is 23.2 mag.
-
-
-The systematic offset in photometry  (the difference between the median photometric uncertainty and the measure of internal photomtric repeatability) at 21 mag for the density of 200 000 sources per sq.deg.  is 0.06 mag.
-
+%
+%
+The systematic offset in photometry  (the difference between the median photometric uncertainty and the measure of internal photometric repeatability) at 21 mag for the density of 200 000 sources per sq.deg.  is 0.06 mag.
+%
 % here we refer to Fig. 22
 The LSST photometry is consistent with DECAPS. Above 19th mag, LSST and DECAPS are in systematics-dominated regime, consistent at 0.02 mag level. At fainter magnitudes, the scatter between LSST and DECAPS is less than the photometric uncertainty.
-
+%
 % here we refer to Fig. 27
 The spread of astrometric repeatability  for LSST  epoch-to-epoch is at the level of 10-30 miliarcsec, and is not strongly dependent on stellar crowdedness.
 }
@@ -61,13 +61,13 @@ The spread of astrometric repeatability  for LSST  epoch-to-epoch is at the leve
 
 We report on the performance of the Large Scale Synoptic Telescope (LSST) science pipelines\footnote{\url{https://pipelines.lsst.io}}, also known as 'the LSST stack', in the stellar fields of varying levels of source crowdedness.
 
-The LSST will sample every night on average over 500  regions in the sky , delivering terabytes of raw data in need of processing, including photometric  and astrometric calibration, to deliver a calibrated exposure image, as well as a source catalog, among image products\footnote{\url{http://ls.st/LSE-163}}~\cite{narayan2018}.
+The LSST will sample every night on average over 500  regions in the sky , delivering terabytes of raw data in need of processing, including photometric  and astrometric calibration, to deliver a calibrated exposure image, as well as a source catalog, among image products\citedsp{LSE-163}.
 
 The survey sky is composed of regions very diverse in terms of stellar density, or crowdedness. Assuming the single-visit depth of 24.5 mag, the stellar density ranges from high density low-galactic latitude regions that have tens of millions of sources per square degree, to low-density regions towards the Galactic poles with less than thousand sources per square degree.
 
-Deblending and successful photometry is an inherent part of any astronomical data processing pipeline.  There exists a body of research answering questions that are specific to crowded stellar fields, eg. how many beams do we need per source ~\citep{hogg2001}, or how  the crowded fields photometry can be approached in the era of large telescopes ~\cite{olsen2003}. Other studies involving HyperSuprime CAM pipeline ( developed in parallel with the LSST Stack) recognized that the deeper the survey, the higher the stellar densities encountered, and therefore, the more challenging the process of deblending photometry~\cite{bosch2017}.
+Deblending and successful photometry is an inherent part of any astronomical data processing pipeline.  There exists a body of research answering questions that are specific to crowded stellar fields, eg. how many beams do we need per source ~\citep{hogg2001}, or how  the crowded fields photometry can be approached in the era of large telescopes ~\citep{olsen2003}. Other studies involving Hyper Suprime-Cam pipeline (developed in parallel with the LSST Stack) recognized that the deeper the survey, the higher the stellar densities encountered, and therefore, the more challenging the process of deblending photometry~\citep{bosch2017}.
 
-In this report we compare the 'out-of-the-box' LSST Stack processing pipeline, to the DECAm [Galactic] Plane Survey (DECAPS) pipeline deveolped by Schlafly et al.~\cite{schlafly2017}.
+In this report we compare the 'out-of-the-box' LSST Stack processing pipeline, to the DECAm [Galactic] Plane Survey (DECAPS) pipeline developed by \citet{schlafly2017}.
 
 To test performance of pipelines at different levels of stellar crowdedness, we choose regions of the sky at various densities based on the Galfast simulation of the night sky (Sec.~\ref{sec:MAF}).
 
@@ -86,7 +86,7 @@ We compare the results of the LSST and DECAPS processing of the same visits by c
 To identify regions representing different stellar densities we use the Galfast simulated stellar density map
 prepared as part of Metrics Analysis Framework\footnote{\url{https://www.lsst.org/scientists/simulations/maf}} by P. Yoachim and L. Jones\footnote{\url{sims_maf/python/lsst/sims/maf/maps/createStarDensitymap.py}}.
 
-The  resulting dataset describes the simulated sky, divided into 49152 healpixels. Each healpixel contains 64 magnitude bins between 15 and 28 mag, each bin storing the cumulative count of sources per square degree\footnote{Healpix stands for Hierarchical Equal Area isoLatitude Pixelization\url{http://healpix.sourceforge.net}\citep{gorski2005}}.  In Table~\ref{tab:galfast_counts} we summarize the stellar count depending on the limiting magnitude, and the area of the sky. In Table~\ref{tab:galfast_densities} we show what area of the survey would include regions of a particular stellar density. In this report  we select the  LSST single-visit depth limiting magnitude of r=24.5 . For each healpixel we find the fraction of pixels that have a higher stellar count (see Fig.~\ref{fig:MAF_densities}).
+The  resulting dataset describes the simulated sky, divided into 49152 healpixels. Each healpixel contains 64 magnitude bins between 15 and 28 mag, each bin storing the cumulative count of sources per square degree\footnote{Healpix stands for Hierarchical Equal Area isoLatitude Pixelization\url{http://healpix.sourceforge.net} \citep{gorski2005}}.  In Table~\ref{tab:galfast_counts} we summarize the stellar count depending on the limiting magnitude, and the area of the sky. In Table~\ref{tab:galfast_densities} we show what area of the survey would include regions of a particular stellar density. In this report  we select the  LSST single-visit depth limiting magnitude of r=24.5 . For each healpixel we find the fraction of pixels that have a higher stellar count (see Fig.~\ref{fig:MAF_densities}).
 
 
 
@@ -127,7 +127,9 @@ mag & $N_{all}$ &  $N_{top 1\%}$ & $N_{top 10\%}$ & $N_{WFD}$ & $N_{WFD+conf.}$ 
 Note that at r<24.5, all healpixels at densities at or above $\approx$1 mln stars per sq.deg. are in  the confusion zone, so increasing the density cutoff does not include more healpixels. However, for r<27.5 there are regions outside the confusion zone even at $\rho$ > 1 mln sources per sq.deg. }
 \label{tab:galfast_densities}
 \begin{tabular}{ccccccccc}
+  \hline
 $\rho$ & A(r<24.5) & A(r<27.5) & N(r<24.5) & N(r<27.5) & WFD(<24.5) & WFD(<27.5) & CZ(<24.5) & CZ(<27.5) \\
+\hline
 35 k & 13002 & 10686 & 0.16 bln & 0.18 bln & 68.1 \% & 56.0 \% & 0.9 \% & 0.1 \% \\
 100 k & 16226 & 14492 & 0.35 bln & 0.41 bln & 85.0 \% & 75.9 \% & 5.7 \% & 0.9 \% \\
 200 k & 17631 & 16300 & 0.55 bln & 0.66 bln & 92.4 \% & 85.4 \% & 13.2 \% & 3.6 \% \\
@@ -149,7 +151,7 @@ $\rho$ & A(r<24.5) & A(r<27.5) & N(r<24.5) & N(r<27.5) & WFD(<24.5) & WFD(<27.5)
 
 \section{DECam Plane Survey }
 \label{sec:DECAPS}
-To test the performance of the LSST Stack with real data, we used the Dark Energy Camera (DECam) imaging, taken as part of the  DECam Plane Survey (DECAPS)~\cite{schlafly2017}, at the 4-m Cerro Tololo Inter-American Observatory telescope (CTIO)\footnote{see \url{http://www.ctio.noao.edu/noao/node/1033}}. Each DECAPS image plane is tiled by a mosaic of 62 CCDs, each  2046x4094 px, 0.27 \arcsec/px\footnote{See Fig.4-3 in the NOAO Data Handbook ~\citep{shaw2015}}. The FOV of full mosaic is 2.2\degree  wide -  several times bigger than the full moon - which makes it comparable to the LSST 3.5\degree field of view.  All DECAPS single-epoch images were processed with the DECAPS pipeline, resulting in single-epoch catalogs\footnote{All available via \url{http://decaps.skymaps.info/catalogs.html}}. The details of DECAPS pipeline can be found in Schlafly et al. 2017~\cite{schlafly2017}, but it was specifically designed for crowded field photometry,  performing DAOPhot-like procedure~\cite{stetson1987}, without employing DAOPhot. The algorithm performs repeated source detection, subtraction, and re-detection, which is different from the LSST pipeline. DECAPS pipeline simultaneously solves for the positions and fluxes for all stars for a small fragment of the CCD (see Sec.4 in ~\cite{schlafly2017}).  The headers of all DECAPS catalogs,  assembled into the image database with information about single-visit exposure time, filter,  time of observation, position, were
+To test the performance of the LSST Stack with real data, we used the Dark Energy Camera (DECam) imaging, taken as part of the  DECam Plane Survey (DECAPS)~\citep{schlafly2017}, at the 4-m Cerro Tololo Inter-American Observatory telescope (CTIO)\footnote{see \url{http://www.ctio.noao.edu/noao/node/1033}}. Each DECAPS image plane is tiled by a mosaic of 62 CCDs, each  2046x4094 px, 0.27 \arcsec/px\footnote{See Fig.4-3 in the NOAO Data Handbook ~\citep{shaw2015}}. The FOV of full mosaic is 2.2\degree  wide -  several times bigger than the full moon - which makes it comparable to the LSST 3.5\degree field of view.  All DECAPS single-epoch images were processed with the DECAPS pipeline, resulting in single-epoch catalogs\footnote{All available via \url{http://decaps.skymaps.info/catalogs.html}}. The details of DECAPS pipeline can be found in \citet{schlafly2017}, but it was specifically designed for crowded field photometry,  performing DAOPhot-like procedure~\citep{stetson1987}, without employing DAOPhot. The algorithm performs repeated source detection, subtraction, and re-detection, which is different from the LSST pipeline. DECAPS pipeline simultaneously solves for the positions and fluxes for all stars for a small fragment of the CCD (see Sec.4 in ~\citealt{schlafly2017}).  The headers of all DECAPS catalogs,  assembled into the image database with information about single-visit exposure time, filter,  time of observation, position, were
 used to select fields in  u,g,r  filter, with exposure between 90 and 120 sec (to match the LSST 30 sec single-visit depth in r). Of these, we chose visits representative of given stellar densities based on the Galfast simulation (see Fig.~\ref{fig:decaps_fields}).  Postage stamp miniatures (Fig.~\ref{fig:decaps_illustrate}) show that we indeed sample vastly diffferent densities. Comparing DECAPS to Galfast counts (Fig.~\ref{fig:maf_decaps_counts}) we find that although the simulation may be not more accurate than up to a actor of a few, it is nevertheless useful for defining density regions.
 
 \begin{figure}
@@ -273,7 +275,9 @@ flag & General Failure Flag \\
 \caption{Summary of possible parentId and nchild combinations for blended sources in the LSST Science Pipeline. An example count in the final column is provided for visit 525814, a top 20\% density region, which has the raw source count 235307. For that visit  16811 sources had bad flags, 49901  had S/N < 5, and in total 163093 were kept in the clean catalog.  }
 \label{tab:lsst_deblend}
 \begin{tabular}{cccccccc}
+\hline
 parentID & nchild & type  & decision &  count \\
+\hline
 0 & 0 & parent: isolated source & keep & 104406 \\
 0 & >0 & blended source & remove & 26981 \\
 !=0 & 0 & deblended child & keep  &103920\\
@@ -567,6 +571,5 @@ Future work:
 %%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\bibliographystyle{apj}
-\bibliography{references}
+\bibliography{references,lsst,refs,books,refs_ads}
 \end{document}
